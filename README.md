@@ -15,21 +15,35 @@ First we need to set up a grid, we will be doing this thru our HTML file, which 
 
 In this example we will be using **SCSS** or **Sassy CSS**, which uses **Sass** which is a *CSS pre-processor* with syntax advancements. Style sheets using SCSS are first processed by the program and later turned into regular CSS style. Every valid CSS stylesheet is a valid SCSS file with the same meaning. Files using the scss syntax have the **.scss** extension.
 
+#### Setting up the page
+
+We need to setup our page with a couple of attributes that will define the position of our pixel art in our page.
+
+``` css
+body {
+  background: #333333;      /* Background color of the whole page */
+  height: 100vh;            /* 100 viewport heigh units */
+  display: flex;            /* defines a flex container */
+  justify-content: center;  /* centers the canvas horizontally */
+  align-items: center;      /* centers the canvas vertically */
+}
+```
 
 ####  Setting up the canvas
 
 To set up our canvas we need to set the height and width of our canvas div and our pixel div, The trick here is knowing exactly how many pixels to create and divide our canvas into equal parts (pixels). For this we need to multiply the number of pixels by their height and width to obtain our canvas width and height. For example if we want an image of 16x16 pixels, and each pixel with a size of 30px by 30px, (16*30px by 16*30px) our canvas size will be 480px by 480px.
 
 ``` css
-.canvas{
-  width: 480px;
-  height: 480px;
+.canvas {
+  width: 480px;   /* Width of the canvas */
+  height: 480px;  /* Height of the canvas */
 }
 
-.pixel{
-  width: 30px;
-  height: 30px;
-  float: left;
+.pixel {
+  width: 30px;    /* Width of each pixel */
+  height: 30px;   /* Height of each pixel */
+  float: left;    /* Everytime it fills the canvas div it will begin a new line */
+  /*box-shadow: 0px 0px 1px #fff;*/  /* Leave commented, showing the pixel boxes */
 }
 ```
 
@@ -43,5 +57,6 @@ Now we need to paint each individual pixel, since we are using a list of divs na
 .pixel:nth-child(1){
   background: #FFFFFF;
 }
-
 ```
+
+After we have successfully painted all the pixels we want we will be able to see our completed image thru our favorite browser.
